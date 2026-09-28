@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe Anime</title>
+  <meta name="author" content="Francots">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+  <!-- Fondo difuminado para las pantallas de juego -->
+  <div id="scene"></div>
+
+  <svg width="0" height="0" style="position:absolute">
+    <symbol id="emblem" viewBox="0 0 100 100">
+      <path d="M50 2 C54 34 66 46 98 50 C66 54 54 66 50 98 C46 66 34 54 2 50 C34 46 46 34 50 2Z"
+            fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.85)" stroke-width="2.5"/>
+      <path d="M50 22 C52 40 60 48 78 50 C60 52 52 60 50 78 C48 60 40 52 22 50 C40 48 48 40 50 22Z"
+            fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+    </symbol>
+  </svg>
+
+  <div id="app">
+    <!-- INICIO -->
+    <section id="screen-home" class="screen active">
+      <nav class="topnav">
+        <div class="brand">TTT <span>Anime</span></div>
+        <button class="navlink" data-panel="rules">Cómo jugar</button>
+      </nav>
+
+      <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+          <h1 class="logo">Tic Tac Toe <span>Anime</span></h1>
+          <p class="tagline">Nombrá un personaje que cumpla la fila y la columna. Tres en línea gana.</p>
+          <a class="scroll-hint" href="#modes"><span>Elegí un modo</span><i></i></a>
+        </div>
+      </header>
+
+      <main id="modes" class="modes">
+        <button class="mode" data-panel="cpu" data-side="right" data-bg="assets/bg/cpu.jpg" style="--i:0; --tint:74,38,140; --ch:235%; --ct:-14%; --cx:8%">
+          <span class="mode-bg"></span><span class="mode-tint"></span><span class="mode-shine"></span>
+          <img class="mode-char" alt="" referrerpolicy="no-referrer"
+               src="https://static.wikia.nocookie.net/jujutsu-kaisen/images/d/dd/Satoru_Gojo_Phantom_Parade.png/revision/latest/scale-to-height-down/800">
+          <span class="mode-label">
+            <svg class="emblem"><use href="#emblem"/></svg>
+            <span class="mode-title">Contra la máquina</span>
+            <span class="mode-line"></span>
+            <span class="mode-sub">Gojo te desafía. ¿Te la bancás?</span>
+          </span>
+        </button>
+
+        <button class="mode" data-panel="online" data-side="left" data-bg="assets/bg/crear.jpg" style="--i:1; --tint:26,86,168; --ch:175%; --ct:-6%; --cx:10%">
+          <span class="mode-bg"></span><span class="mode-tint"></span><span class="mode-shine"></span>
+          <img class="mode-char" alt="" referrerpolicy="no-referrer"
+               src="https://static.wikia.nocookie.net/onepiece/images/d/d9/Luffy_Post_Timeskip_Render.png/revision/latest">
+          <span class="mode-label">
+            <svg class="emblem"><use href="#emblem"/></svg>
+            <span class="mode-title">Multijugador online</span>
+            <span class="mode-line"></span>
+            <span class="mode-sub">Creá una sala y desafiá a tus amigos</span>
+          </span>
+        </button>
+
+        <button class="mode" data-panel="local" data-side="right" data-bg="assets/bg/local.jpg" style="--i:2; --tint:196,92,34; --ch:165%; --ct:-8%; --cx:8%">
+          <span class="mode-bg"></span><span class="mode-tint"></span><span class="mode-shine"></span>
+          <img class="mode-char" alt="" referrerpolicy="no-referrer"
+               src="https://static.wikia.nocookie.net/dragonball/images/e/e5/Render_Dragon_Ball_z_Goku.png/revision/latest/scale-to-height-down/800">
+          <span class="mode-label">
+            <svg class="emblem"><use href="#emblem"/></svg>
+            <span class="mode-title">Dos jugadores</span>
+            <span class="mode-line"></span>
+            <span class="mode-sub">En la misma pantalla, cara a cara</span>
+          </span>
+        </button>
+
+        <button class="mode" data-panel="rules" data-side="left" data-bg="assets/bg/unirse.jpg" style="--i:3; --tint:22,110,112; --ch:190%; --ct:-8%; --cx:10%">
+          <span class="mode-bg"></span><span class="mode-tint"></span><span class="mode-shine"></span>
+          <img class="mode-char" alt="" referrerpolicy="no-referrer"
+               src="https://static.wikia.nocookie.net/kimetsu-no-yaiba/images/d/dd/Tanjiro_Kamado_Full_Body_%28Anime%29.png/revision/latest/scale-to-height-down/800">
+          <span class="mode-label">
+            <svg class="emblem"><use href="#emblem"/></svg>
+            <span class="mode-title">Cómo jugar</span>
+            <span class="mode-line"></span>
+            <span class="mode-sub">Reglas y consejos</span>
+          </span>
+        </button>
+      </main>
+
+      <footer class="credits">
+        <div class="author">Creado por <b>Francots</b></div>
+        Proyecto fan sin fines de lucro. Fondos de <a href="https://wallhaven.cc" target="_blank" rel="noopener">Wallhaven</a>,
+        personajes de las wikis de <a href="https://www.fandom.com" target="_blank" rel="noopener">Fandom</a> y
+        <a href="https://anilist.co" target="_blank" rel="noopener">AniList</a>. Todos los personajes pertenecen a sus autores.
+      </footer>
+    </section>
+
+    <!-- SALA DE ESPERA -->
+    <section id="screen-lobby" class="screen">
+      <h2>Sala creada</h2>
+      <p>Pasale este código a tu amigo:</p>
+      <div id="lobby-code" class="big-code">-----</div>
+      <div class="lobby-actions">
+        <button id="btn-copy-link" class="btn">Copiar link de invitación</button>
+      </div>
+      <p class="waiting"><span class="spinner"></span> Esperando rival…</p>
+      <button id="btn-lobby-back" class="btn ghost">Cancelar</button>
+    </section>
+
+    <!-- CONECTANDO -->
+    <section id="screen-connecting" class="screen">
+      <p class="waiting"><span class="spinner"></span> <span id="connecting-text">Conectando…</span></p>
+      <button id="btn-connecting-back" class="btn ghost">Cancelar</button>
+    </section>
+
+    <!-- JUEGO -->
+    <section id="screen-game" class="screen">
+      <header class="scorebar">
+        <div class="player p0" id="pl-0"><span class="mark">X</span><span class="pname"></span><span class="pscore"></span></div>
+        <div class="timer"><div class="timer-num" id="timer-num">30</div></div>
+        <div class="player p1" id="pl-1"><span class="pscore"></span><span class="pname"></span><span class="mark">O</span></div>
+      </header>
+      <div class="timer-bar"><div id="timer-fill"></div></div>
+      <p id="turn-text" class="turn-text"></p>
+
+      <div id="board" class="board"></div>
+
+      <div class="game-actions">
+        <button id="btn-pass" class="btn ghost small">Pasar turno</button>
+        <button id="btn-leave" class="btn ghost small">Salir</button>
+      </div>
+      <div id="toast" class="toast"></div>
+    </section>
+
+    <!-- PANEL DE MODO -->
+    <div id="panel" class="modal panel hidden">
+      <div class="panel-card">
+        <div class="panel-head" id="panel-head">
+          <img id="panel-char" alt="" referrerpolicy="no-referrer">
+          <div class="panel-titles">
+            <h2 id="panel-title"></h2>
+            <p id="panel-sub"></p>
+          </div>
+          <button class="panel-close" id="panel-close" aria-label="Cerrar">✕</button>
+        </div>
+        <div class="panel-body">
+          <label data-for="cpu online local">Tu nombre
+            <input id="in-name" maxlength="16" placeholder="Ej: Franco">
+          </label>
+          <label data-for="local">Nombre del jugador 2
+            <input id="in-name2" maxlength="16" placeholder="Jugador 2">
+          </label>
+
+          <div data-for="cpu" class="field">
+            <span class="field-label">Dificultad</span>
+            <div class="seg" id="in-diff">
+              <button data-v="facil">Fácil</button>
+              <button data-v="normal" class="on">Normal</button>
+              <button data-v="dificil">Difícil</button>
+            </div>
+          </div>
+
+          <div class="settings" data-for="cpu online local">
+            <label>Tiempo por turno
+              <select id="in-timer">
+                <option value="20">20 s</option>
+                <option value="30" selected>30 s</option>
+                <option value="45">45 s</option>
+                <option value="60">60 s</option>
+              </select>
+            </label>
+            <label class="check"><input type="checkbox" id="in-spoilers" checked> Categorías con spoilers (💀)</label>
+          </div>
+
+          <button data-for="cpu" id="btn-cpu" class="btn primary">¡A jugar!</button>
+          <button data-for="local" id="btn-local" class="btn primary">Empezar partida</button>
+          <button data-for="online" id="btn-create" class="btn primary">Crear sala</button>
+          <div data-for="online" class="divider"><span>o unite a la sala de un amigo</span></div>
+          <div data-for="online" class="join-row">
+            <input id="in-code" maxlength="5" placeholder="CÓDIGO" autocomplete="off">
+            <button id="btn-join" class="btn">Unirse</button>
+          </div>
+
+          <div data-for="rules" class="rules">
+            <ol>
+              <li>Cada casilla cruza dos categorías: un <b>anime</b> o un <b>atributo</b> (pelo rubio, usa espada, villano…).</li>
+              <li>En tu turno elegís una casilla libre y escribís un personaje que cumpla <b>las dos</b>.</li>
+              <li>Si acertás, la casilla es tuya y ya nadie la puede marcar.</li>
+              <li>Si fallás o se te acaba el tiempo, <b>perdés el turno</b>.</li>
+              <li>Cada personaje se usa una sola vez por partida.</li>
+              <li>Gana quien haga tres en línea. Si no quedan jugadas posibles, es empate.</li>
+            </ol>
+            <p class="muted">Consejo: el centro y las esquinas participan en más líneas. ¡Y ojo con los atributos cruzados!</p>
+          </div>
+
+          <p id="home-error" class="error"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUSCADOR -->
+    <div id="search" class="modal hidden">
+      <div class="modal-card">
+        <div id="search-cats" class="search-cats"></div>
+        <input id="search-input" placeholder="Escribí un personaje…" autocomplete="off" spellcheck="false">
+        <ul id="search-results" class="results"></ul>
+        <button id="search-cancel" class="btn ghost small">Cancelar</button>
+      </div>
+    </div>
+
+    <!-- FIN DE PARTIDA -->
+    <div id="over" class="modal hidden">
+      <div class="modal-card center">
+        <h2 id="over-title"></h2>
+        <p id="over-score"></p>
+        <button id="btn-rematch" class="btn primary">Revancha</button>
+        <button id="btn-answers" class="btn">Ver respuestas</button>
+        <button id="btn-over-leave" class="btn ghost">Salir</button>
+        <p id="over-wait" class="muted"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/images.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/net.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

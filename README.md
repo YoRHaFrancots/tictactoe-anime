@@ -4,6 +4,10 @@ Autor: **Francots**
 
 Tic-Tac-Toe estilo "futbolero" pero con personajes de anime. Cada casilla cruza dos categorías (un anime o un atributo). Para marcarla tenés que nombrar un personaje que cumpla las dos.
 
+## 🎮 [Jugar ahora → tictactoe-anime.netlify.app](https://tictactoe-anime.netlify.app/)
+
+No hace falta instalar nada: funciona en el navegador, desde la compu o el celular.
+
 ## Reglas
 
 - En tu turno elegís una casilla libre y escribís un personaje.
@@ -18,27 +22,13 @@ Tic-Tac-Toe estilo "futbolero" pero con personajes de anime. Cada casilla cruza 
 - **Multijugador online**: creás una sala o te unís con un código.
 - **Dos jugadores**: se turnan en la misma pantalla.
 
-## Cómo jugar en tu compu
-
-No hace falta instalar nada más que Python, que ya tenés.
-
-```bash
-python tools/serve.py
-```
-
-Después abrí http://localhost:8000 en el navegador. Este servidor desactiva la caché, así siempre ves la última versión de los archivos.
-
 ## Cómo jugar online con amigos
 
-1. Uno entra a **Multijugador online**, toca **Crear sala** y le pasa el código (o el link de invitación) al amigo.
-2. El amigo pone el código y toca **Unirse**.
+1. Entrá a [tictactoe-anime.netlify.app](https://tictactoe-anime.netlify.app/), elegí **Multijugador online** y tocá **Crear sala**.
+2. Pasale a tu amigo el código o el link de invitación.
+3. Tu amigo pone el código y toca **Unirse**.
 
 La conexión es directa entre los dos navegadores (WebRTC, usando PeerJS). El que crea la sala hace de "servidor": maneja el tiempo y valida las respuestas. Si el invitado se desconecta, la partida se pausa hasta que vuelva a entrar con el mismo código.
-
-Para jugar con amigos que no están en tu casa, el juego tiene que estar publicado en internet. Algunas opciones gratis:
-
-- **Netlify Drop**: entrá a https://app.netlify.com/drop y arrastrá la carpeta del proyecto. Te da un link al instante.
-- **GitHub Pages**: subí la carpeta a un repositorio y activá Pages en la configuración.
 
 ## Agregar personajes
 
